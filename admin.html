@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Message Database | Velocity Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: var(--primary);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .admin-header h1 i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-box i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .messages-table-wrapper {
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 1rem 1.5rem;
+            background: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-header h2 {
+            font-size: 1.2rem;
+        }
+
+        .btn-clear {
+            padding: 0.5rem 1rem;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-clear:hover {
+            background: #c82333;
+        }
+
+        .messages-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .messages-table th,
+        .messages-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .messages-table th {
+            background: var(--primary-light);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .messages-table tr:hover {
+            background: var(--primary);
+        }
+
+        .messages-table .unread {
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        .messages-table .unread td:first-child {
+            border-left: 3px solid var(--accent);
+        }
+
+        .message-preview {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .interest-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .btn-view-msg {
+            padding: 0.4rem 0.8rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-view-msg:hover {
+            background: var(--accent-hover);
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .no-messages i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--border);
+        }
+
+        /* Message Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-row {
+            margin-bottom: 1rem;
+        }
+
+        .modal-row label {
+            display: block;
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-row p {
+            color: var(--text-light);
+        }
+
+        .modal-message {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .btn-close:hover {
+            color: var(--accent);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar input,
+        .filter-bar select {
+            padding: 0.5rem 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-light);
+        }
+
+        .btn-export {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="index.html" class="btn-login">Exit Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-database"></i> Message Database</h1>
+            <span style="color: var(--text-muted);">Admin Panel</span>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-box">
+                <i class="fas fa-envelope"></i>
+                <span class="stat-number" id="totalMessages">0</span>
+                <span class="stat-label">Total Messages</span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-envelope-open-text"></i>
+                <span class="stat-number" id="unreadMessages">0</span>
+                <span class="stat-label">Unread</span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-motorcycle"></i>
+                <span class="stat-number" id="bikeInquiries">0</span>
+                <span class="stat-label">Bike Inquiries</span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-car"></i>
+                <span class="stat-number" id="carInquiries">0</span>
+                <span class="stat-label">Car Inquiries</span>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="Search messages...">
+            <select id="filterInterest">
+                <option value="">All Interests</option>
+                <option value="motorbike">Motorbike Purchase</option>
+                <option value="sports-car">Sports Car Purchase</option>
+                <option value="service">Maintenance Service</option>
+                <option value="financing">Financing Options</option>
+                <option value="trade-in">Trade-In Evaluation</option>
+                <option value="other">Other Inquiry</option>
+            </select>
+            <button class="btn-export" onclick="exportMessages()">
+                <i class="fas fa-download"></i> Export CSV
+            </button>
+        </div>
+
+        <div class="messages-table-wrapper">
+            <div class="table-header">
+                <h2><i class="fas fa-inbox"></i> Incoming Messages</h2>
+                <button class="btn-clear" onclick="clearAllMessages()">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+            <table class="messages-table" id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Interest</th>
+                        <th>Message Preview</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="messagesBody">
+                </tbody>
+            </table>
+            <div class="no-messages" id="noMessages" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <p>No messages yet</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Message Details</h3>
+                <button class="btn-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer footer-simple">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Velocity Motors Admin Panel</p>
+        </div>
+    </footer>
+
+    <script>
+        let allMessages = [];
+
+        function loadMessages() {
+            allMessages = JSON.parse(localStorage.getItem('velocityMessages') || '[]');
+            updateStats();
+            renderMessages(allMessages);
+        }
+
+        function updateStats() {
+            document.getElementById('totalMessages').textContent = allMessages.length;
+            document.getElementById('unreadMessages').textContent = allMessages.filter(m => !m.read).length;
+            document.getElementById('bikeInquiries').textContent = allMessages.filter(m =>
+                m.interest === 'motorbike' || m.interest === 'service'
+            ).length;
+            document.getElementById('carInquiries').textContent = allMessages.filter(m =>
+                m.interest === 'sports-car' || m.interest === 'trade-in'
+            ).length;
+        }
+
+        function renderMessages(messages) {
+            const tbody = document.getElementById('messagesBody');
+            const noMessages = document.getElementById('noMessages');
+
+            if (messages.length === 0) {
+                tbody.innerHTML = '';
+                noMessages.style.display = 'block';
+                return;
+            }
+
+            noMessages.style.display = 'none';
+            tbody.innerHTML = messages.map(msg => `
+                <tr class="${msg.read ? '' : 'unread'}">
+                    <td>${msg.date}</td>
+                    <td>${msg.firstName} ${msg.lastName}</td>
+                    <td>${msg.email}</td>
+                    <td>${formatInterest(msg.interest)}</td>
+                    <td class="message-preview" title="${msg.message || 'No message'}">${msg.message || 'No message'}</td>
+                    <td>
+                        <button class="btn-view-msg" onclick="viewMessage(${msg.id})">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function formatInterest(interest) {
+            const labels = {
+                'motorbike': 'Motorbike',
+                'sports-car': 'Sports Car',
+                'service': 'Service',
+                'financing': 'Financing',
+                'trade-in': 'Trade-In',
+                'other': 'Other'
+            };
+            return `<span class="interest-tag">${labels[interest] || 'General'}</span>`;
+        }
+
+        function viewMessage(id) {
+            const msg = allMessages.find(m => m.id === id);
+            if (!msg) return;
+
+            // Mark as read
+            msg.read = true;
+            localStorage.setItem('velocityMessages', JSON.stringify(allMessages));
+            updateStats();
+            filterMessages();
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="modal-row">
+                    <label>From</label>
+                    <p><strong>${msg.firstName} ${msg.lastName}</strong> (${msg.email})</p>
+                </div>
+                <div class="modal-row">
+                    <label>Phone</label>
+                    <p>${msg.phone || 'Not provided'}</p>
+                </div>
+                <div class="modal-row">
+                    <label>Interest</label>
+                    <p>${formatInterest(msg.interest)}</p>
+                </div>
+                <div class="modal-row">
+                    <label>Received</label>
+                    <p>${msg.date}</p>
+                </div>
+                <div class="modal-row">
+                    <label>Message</label>
+                    <div class="modal-message">
+                        <p>${msg.message || 'No message content'}</p>
+                    </div>
+                </div>
+                <div class="modal-row">
+                    <label>Newsletter Subscription</label>
+                    <p>${msg.newsletter ? '<i class="fas fa-check" style="color: var(--accent);"></i> Subscribed' : 'Not subscribed'}</p>
+                </div>
+                <div style="margin-top: 1.5rem; text-align: right;">
+                    <a href="mailto:${msg.email}" class="btn-login" style="margin-right: 0.5rem;">
+                        <i class="fas fa-reply"></i> Reply via Email
+                    </a>
+                    <button class="btn-clear" onclick="deleteMessage(${msg.id}); closeModal();">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('messageModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('messageModal').classList.remove('active');
+        }
+
+        function deleteMessage(id) {
+            allMessages = allMessages.filter(m => m.id !== id);
+            localStorage.setItem('velocityMessages', JSON.stringify(allMessages));
+            updateStats();
+            filterMessages();
+            showToast('Message deleted', 'info');
+        }
+
+        function clearAllMessages() {
+            if (confirm('Are you sure you want to delete ALL messages? This cannot be undone.')) {
+                localStorage.removeItem('velocityMessages');
+                allMessages = [];
+                updateStats();
+                renderMessages([]);
+                showToast('All messages cleared', 'success');
+            }
+        }
+
+        function filterMessages() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const interest = document.getElementById('filterInterest').value;
+
+            let filtered = allMessages;
+
+            if (search) {
+                filtered = filtered.filter(m =>
+                    m.firstName.toLowerCase().includes(search) ||
+                    m.lastName.toLowerCase().includes(search) ||
+                    m.email.toLowerCase().includes(search) ||
+                    (m.message && m.message.toLowerCase().includes(search))
+                );
+            }
+
+            if (interest) {
+                filtered = filtered.filter(m => m.interest === interest);
+            }
+
+            renderMessages(filtered);
+        }
+
+        function exportMessages() {
+            if (allMessages.length === 0) {
+                showToast('No messages to export', 'error');
+                return;
+            }
+
+            const csv = [
+                ['Date', 'First Name', 'Last Name', 'Email', 'Phone', 'Interest', 'Message', 'Newsletter'].join(','),
+                ...allMessages.map(m => [
+                    m.date,
+                    m.firstName,
+                    m.lastName,
+                    m.email,
+                    m.phone || '',
+                    m.interest,
+                    `"${(m.message || '').replace(/"/g, '""')}"`,
+                    m.newsletter ? 'Yes' : 'No'
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `velocity-messages-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            showToast('Messages exported successfully', 'success');
+        }
+
+        function showToast(text, type) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 4px;
+                color: white;
+                font-weight: 500;
+                z-index: 10001;
+                animation: slideIn 0.3s ease;
+                background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'};
+            `;
+            toast.textContent = text;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterMessages);
+        document.getElementById('filterInterest').addEventListener('change', filterMessages);
+
+        // Close modal on outside click
+        document.getElementById('messageModal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) closeModal();
+        });
+
+        // Load messages on page load
+        loadMessages();
+    </script>
+</body>
+</html>

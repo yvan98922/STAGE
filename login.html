@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Velocity Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <i class="fas fa-user-circle"></i>
+                <h1>Welcome Back</h1>
+                <p>Sign in to your Velocity Motors account</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Keep me signed in</label>
+                </div>
+
+                <button type="submit" class="btn-auth">Sign In</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-social btn-google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Need an account? <a href="signup.html">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer footer-simple">
+        <div class="footer-bottom">
+            <p>&copy; 2024 Velocity Motors. Built with passion for the road.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

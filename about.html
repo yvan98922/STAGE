@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Velocity Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="signup.html" class="btn-signup">Sign Up</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Our Story</h1>
+        <p>Fifteen years of putting people on the rides they love</p>
+    </header>
+
+    <section class="about-intro">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&h=400&fit=crop" alt="Our Showroom">
+            </div>
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>Velocity Motors started back in 2026 with a simple idea: create a place where riders and drivers can find quality machines without the usual dealership headache. What began as a small garage with just six bikes and two cars has grown into a trusted name in the industry.</p>
+                <p>We are not your typical sales lot. Every member of our team actually rides or drives what we sell. That means when you ask questions, you get real answers from people who understand what you are looking for.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="local-gallery">
+        <h2>Our Collection</h2>
+        <div class="gallery-single">
+            <img src="download (21).jfif" alt="Featured Vehicle from Our Showroom">
+        </div>
+    </section>
+
+    <section class="mission-values">
+        <div class="mission-block">
+            <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+            <p>To connect every customer with a vehicle that matches their style, needs, and budget. We do not push products—we solve problems and fuel passions.</p>
+        </div>
+        <div class="values-block">
+            <h3><i class="fas fa-heart"></i> What Drives Us</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <strong>Honesty First</strong>
+                    <p>No hidden fees, no surprise charges. The price you see is the price you pay.</p>
+                </div>
+                <div class="value-item">
+                    <strong>Quality Matters</strong>
+                    <p>Every vehicle on our floor passes a 100-point inspection before it goes up for sale.</p>
+                </div>
+                <div class="value-item">
+                    <strong>Customer for Life</strong>
+                    <p>We want you coming back for your next ride, not just today but years from now.</p>
+                </div>
+                <div class="value-item">
+                    <strong>Community Focus</strong>
+                    <p>We sponsor local track days, bike nights, and car meets to keep the culture alive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet the Crew</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Marcus Chen">
+                </div>
+                <h4>Marcus Chen</h4>
+                <span class="role">Founder & CEO</span>
+                <p>Former racing instructor with 20 years in the business. Still rides his 2005 R1 every weekend.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" alt="Sarah Okafor">
+                </div>
+                <h4>Sarah Okafor</h4>
+                <span class="role">Sales Director</span>
+                <p>Motorcycle enthusiast who knows every spec by heart. She will match you with the perfect bike.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face" alt="David Park">
+                </div>
+                <h4>David Park</h4>
+                <span class="role">Head Mechanic</span>
+                <p>Certified master technician. If it has an engine, he can fix it or make it faster.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" alt="Lisa Rodriguez">
+                </div>
+                <h4>Lisa Rodriguez</h4>
+                <span class="role">Customer Relations</span>
+                <p>Keeps everything running smooth. She makes sure every customer leaves happy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Opened doors with 8 vehicles and 3 employees</div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Expanded to full-service garage and repair shop</div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Launched financing program to help more customers</div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Moved to current 15,000 sq ft showroom location</div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Added electric vehicles to our lineup</div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="event">Celebrating 2years with over 1,000 happy customers</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What People Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Bought my first sportbike here three years ago. Just came back for my second. These guys treat you right."</p>
+                <span class="author">- James T.</span>
+            </div>
+            <div class="testimonial">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"No pressure sales, honest advice, fair prices. Wish I found this place sooner."</p>
+                <span class="author">- Michelle K.</span>
+            </div>
+            <div class="testimonial">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"The service department saved my vintage Ducati when two other shops gave up. Experts here."</p>
+                <span class="author">- Robert L.</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Velocity Motors</h4>
+                <p>The ultimate destination for speed enthusiasts. Quality vehicles, unmatched service.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Reach Us</h4>
+                <p><i class="fas fa-phone"></i> +250 736 742 589</p>
+                <p><i class="fas fa-envelope"></i> velocitymotors23@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Speed Lane, Motor City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Velocity Motors. Built with passion for the road.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

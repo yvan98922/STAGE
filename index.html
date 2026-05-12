@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Motors - Premium Motorbikes & Sports Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="signup.html" class="btn-signup">Sign Up</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Feel the Rush of Pure Speed</h1>
+            <p>Your destination for top-tier motorbikes and sports cars. We bring you the finest machines built for those who crave adrenaline.</p>
+            <div class="hero-buttons">
+                <a href="services.html" class="btn-primary">Browse Collection</a>
+                <a href="contact.html" class="btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="vehicle-showcase">
+        <h2>Featured Machines</h2>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop" alt="Sports Bike">
+                    <div class="showcase-badge">New Arrival</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Yamaha R1</h3>
+                    <p class="category">Superbike</p>
+                    <p class="price">$17,999</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Yamaha R1', 17999, 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Sports Car">
+                    <div class="showcase-badge">Featured</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Porsche 911 GT3</h3>
+                    <p class="category">Sports Car</p>
+                    <p class="price">$169,900</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Porsche 911 GT3', 169900, 'https://images.unsplash.com/photo-1503376763036-066120622c74?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="bike 🚲 mountain in india background i.jfif" alt="Mountain Bike">
+                    <div class="showcase-badge">Local</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Adventure Mountain Bike</h3>
+                    <p class="category">Off-Road</p>
+                    <p class="price">$8,500</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Adventure Mountain Bike', 8500, 'bike 🚲 mountain in india background i.jfif')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop" alt="Luxury Sports Car">
+                </div>
+                <div class="showcase-info">
+                    <h3>Lamborghini Huracan</h3>
+                    <p class="category">Supercar</p>
+                    <p class="price">$248,000</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Lamborghini Huracan', 248000, 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1615172282420-4f81bf5f1748?w=600&h=400&fit=crop" alt="Ducati Panigale">
+                    <div class="showcase-badge">Hot</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Ducati Panigale V4</h3>
+                    <p class="category">Superbike</p>
+                    <p class="price">$23,995</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Ducati Panigale V4', 23995, 'https://images.unsplash.com/photo-1615172282420-4f81bf5f1748?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&h=400&fit=crop" alt="BMW Sports Car">
+                </div>
+                <div class="showcase-info">
+                    <h3>BMW M4 Competition</h3>
+                    <p class="category">Sports Coupe</p>
+                    <p class="price">$78,800</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('BMW M4 Competition', 78800, 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1568708162-67d4fccafef2?w=600&h=400&fit=crop" alt="Kawasaki Ninja">
+                    <div class="showcase-badge">New</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Kawasaki Ninja ZX-10R</h3>
+                    <p class="category">Superbike</p>
+                    <p class="price">$16,599</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Kawasaki Ninja ZX-10R', 16599, 'https://images.unsplash.com/photo-1568708162-67d4fccafef2?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Ferrari">
+                </div>
+                <div class="showcase-info">
+                    <h3>Ferrari F8 Tributo</h3>
+                    <p class="category">Supercar</p>
+                    <p class="price">$276,000</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Ferrari F8 Tributo', 276000, 'https://images.unsplash.com/photo-1503376763036-066120622c74?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop" alt="Indian Motorcycle">
+                </div>
+                <div class="showcase-info">
+                    <h3>Indian Chief Dark Horse</h3>
+                    <p class="category">Cruiser</p>
+                    <p class="price">$18,499</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Indian Chief Dark Horse', 18499, 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=600&h=400&fit=crop" alt="McLaren">
+                    <div class="showcase-badge">Rare</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>McLaren 720S</h3>
+                    <p class="category">Supercar</p>
+                    <p class="price">$299,000</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('McLaren 720S', 299000, 'https://images.unsplash.com/photo-1542362567-b07e54358753?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01c?w=600&h=400&fit=crop" alt="Suzuki GSX-R">
+                </div>
+                <div class="showcase-info">
+                    <h3>Suzuki GSX-R1000</h3>
+                    <p class="category">Superbike</p>
+                    <p class="price">$15,899</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Suzuki GSX-R1000', 15899, 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01c?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" alt="Audi R8">
+                </div>
+                <div class="showcase-info">
+                    <h3>Audi R8 V10</h3>
+                    <p class="category">Supercar</p>
+                    <p class="price">$142,700</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Audi R8 V10', 142700, 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop" alt="Triumph">
+                    <div class="showcase-badge">Classic</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Triumph Street Triple</h3>
+                    <p class="category">Naked Bike</p>
+                    <p class="price">$10,500</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Triumph Street Triple', 10500, 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop" alt="Honda CBR">
+                    <div class="showcase-badge">Best Seller</div>
+                </div>
+                <div class="showcase-info">
+                    <h3>Honda CBR1000RR-R</h3>
+                    <p class="category">Superbike</p>
+                    <p class="price">$28,500</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Honda CBR1000RR-R', 28500, 'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-image">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Corvette">
+                </div>
+                <div class="showcase-info">
+                    <h3>Chevrolet Corvette Z06</h3>
+                    <p class="category">Sports Car</p>
+                    <p class="price">$106,000</p>
+                    <div class="card-buttons">
+                        <a href="contact.html" class="btn-view">View Details</a>
+                        <button class="btn-add-cart" onclick="addToCart('Chevrolet Corvette Z06', 106000, 'https://images.unsplash.com/photo-1503376763036-066120622c74?w=100')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>What We Offer</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-motorcycle"></i>
+                </div>
+                <h3>High-Performance Motorbikes</h3>
+                <p>From street fighters to track-ready superbikes, we stock the best two-wheelers money can buy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3>Sports Cars Collection</h3>
+                <p>Luxury meets speed. Our sports car lineup includes the latest models from world-famous brands.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Expert Maintenance</h3>
+                <p>Our certified technicians keep your ride in top condition with professional servicing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Bikes Sold</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">350+</span>
+                <span class="stat-label">Cars Delivered</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Happy Clients</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <h2>Why Riders Choose Us</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <i class="fas fa-check-circle"></i>
+                <h4>Genuine Parts Only</h4>
+                <p>No fakes, no compromises. Every vehicle comes with authentic components.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Warranty Included</h4>
+                <p>Every purchase comes with a solid warranty for your peace of mind.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h4>Easy Financing</h4>
+                <p>Flexible payment plans to help you own your dream ride faster.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-headset"></i>
+                <h4>24/7 Support</h4>
+                <p>Got questions? Our team is always ready to help, day or night.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Velocity Motors</h4>
+                <p>The ultimate destination for speed enthusiasts. Quality vehicles, unmatched service.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Reach Us</h4>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@velocitymotors.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Speed Lane, Motor City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Velocity Motors. Built with passion for the road.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add to Cart function
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem('velocityCart') || '[]');
+
+            // Check if item already exists
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+                showMessage(name + ' quantity updated in cart!', 'success');
+            } else {
+                const newItem = {
+                    id: Date.now(),
+                    name: name,
+                    price: price,
+                    qty: 1,
+                    image: image
+                };
+                cart.push(newItem);
+                showMessage(name + ' added to cart!', 'success');
+            }
+
+            localStorage.setItem('velocityCart', JSON.stringify(cart));
+
+            // Update cart count in navbar if element exists
+            updateCartCount();
+        }
+
+        // Update cart count badge in navbar
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('velocityCart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+            // You can add a cart badge element to the navbar if needed
+            console.log('Cart items:', totalItems);
+        }
+
+        // Show message toast (reusing the style from script.js)
+        function showMessage(text, type) {
+            const existing = document.querySelector('.message-toast');
+            if (existing) existing.remove();
+
+            const message = document.createElement('div');
+            message.className = 'message-toast ' + type;
+            message.innerHTML = '<span>' + text + '</span>';
+            message.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 4px;
+                color: white;
+                font-weight: 500;
+                z-index: 10000;
+                max-width: 350px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease;
+                background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'};
+            `;
+
+            document.body.appendChild(message);
+
+            setTimeout(() => {
+                message.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => message.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Velocity Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="signup.html" class="btn-signup">Sign Up</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>What We Do</h1>
+        <p>Everything you need to hit the road or track with confidence</p>
+    </header>
+
+    <section class="gallery-section">
+        <h2>Our Showroom</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item large">
+                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b584?w=800&h=500&fit=crop" alt="Luxury Sports Car">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop" alt="Motorcycle">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop" alt="Supercar">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&h=300&fit=crop" alt="Bike">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=400&h=300&fit=crop" alt="Sports Car">
+            </div>
+            <div class="gallery-item large">
+                <img src="bike 🚲 mountain in india background i.jfif" alt="Mountain Adventure Bike - Available Now">
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-motorcycle"></i>
+                <h2>Motorbike Sales</h2>
+            </div>
+            <div class="service-details">
+                <p>We carry a wide range of motorbikes suited for every rider out there. Whether you are just starting or you have been riding for years, we have got something for you.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Sport bikes for track days</li>
+                    <li><i class="fas fa-angle-right"></i> Cruisers for long highway runs</li>
+                    <li><i class="fas fa-angle-right"></i> Dirt bikes for off-road fun</li>
+                    <li><i class="fas fa-angle-right"></i> Electric bikes for city commuting</li>
+                    <li><i class="fas fa-angle-right"></i> Scooters for daily errands</li>
+                </ul>
+                <a href="contact.html" class="btn-service">View Bike Inventory</a>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-car"></i>
+                <h2>Sports Car Sales</h2>
+            </div>
+            <div class="service-details">
+                <p>Our sports car collection is hand-picked for people who appreciate fine engineering and raw power. These machines are built to perform.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Coupes with aggressive styling</li>
+                    <li><i class="fas fa-angle-right"></i> Convertibles for open-air driving</li>
+                    <li><i class="fas fa-angle-right"></i> Supercars with insane acceleration</li>
+                    <li><i class="fas fa-angle-right"></i> Classic restored models</li>
+                    <li><i class="fas fa-angle-right"></i> Track-focused specials</li>
+                </ul>
+                <a href="contact.html" class="btn-service">View Car Inventory</a>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-wrench"></i>
+                <h2>Repair & Maintenance</h2>
+            </div>
+            <div class="service-details">
+                <p>Keep your ride running smooth with our full-service garage. Our mechanics know these machines inside and out.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Oil changes and fluid checks</li>
+                    <li><i class="fas fa-angle-right"></i> Brake pad replacement</li>
+                    <li><i class="fas fa-angle-right"></i> Tire mounting and balancing</li>
+                    <li><i class="fas fa-angle-right"></i> Engine diagnostics</li>
+                    <li><i class="fas fa-angle-right"></i> Custom modifications</li>
+                    <li><i class="fas fa-angle-right"></i> Seasonal storage prep</li>
+                </ul>
+                <a href="contact.html" class="btn-service">Book Service</a>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-dollar-sign"></i>
+                <h2>Financing Options</h2>
+            </div>
+            <div class="service-details">
+                <p>We believe everyone deserves their dream ride. That is why we offer flexible financing solutions to fit your budget.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Low down payment plans</li>
+                    <li><i class="fas fa-angle-right"></i> Competitive interest rates</li>
+                    <li><i class="fas fa-angle-right"></i> Quick approval process</li>
+                    <li><i class="fas fa-angle-right"></i> Trade-in evaluations</li>
+                    <li><i class="fas fa-angle-right"></i> Lease options available</li>
+                </ul>
+                <a href="contact.html" class="btn-service">Apply for Financing</a>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Insurance Assistance</h2>
+            </div>
+            <div class="service-details">
+                <p>Protect your investment with the right coverage. We work with top insurance providers to get you the best rates.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Full coverage plans</li>
+                    <li><i class="fas fa-angle-right"></i> Theft and damage protection</li>
+                    <li><i class="fas fa-angle-right"></i> Roadside assistance add-ons</li>
+                    <li><i class="fas fa-angle-right"></i> Multi-vehicle discounts</li>
+                </ul>
+                <a href="contact.html" class="btn-service">Get Insurance Quote</a>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-header">
+                <i class="fas fa-exchange-alt"></i>
+                <h2>Trade-In Program</h2>
+            </div>
+            <div class="service-details">
+                <p>Ready to upgrade? Bring in your current ride and we will give you a fair value to put toward your next purchase.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-angle-right"></i> Free appraisal service</li>
+                    <li><i class="fas fa-angle-right"></i> Instant trade-in credit</li>
+                    <li><i class="fas fa-angle-right"></i> All makes accepted</li>
+                    <li><i class="fas fa-angle-right"></i> Hassle-free paperwork</li>
+                </ul>
+                <a href="contact.html" class="btn-service">Value Your Trade</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-highlight">
+        <h2>Service Packages</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <h3>Basic Tune-Up</h3>
+                <div class="package-price">$149</div>
+                <ul>
+                    <li>Oil and filter change</li>
+                    <li>Tire pressure check</li>
+                    <li>Brake inspection</li>
+                    <li>Chain lubrication</li>
+                </ul>
+                <button class="btn-package">Select</button>
+            </div>
+            <div class="package-card featured">
+                <div class="badge">Popular</div>
+                <h3>Full Service</h3>
+                <div class="package-price">$299</div>
+                <ul>
+                    <li>Everything in Basic</li>
+                    <li>Fluid top-ups</li>
+                    <li>Battery check</li>
+                    <li>Suspension inspection</li>
+                    <li>Diagnostic scan</li>
+                </ul>
+                <button class="btn-package">Select</button>
+            </div>
+            <div class="package-card">
+                <h3>Premium Overhaul</h3>
+                <div class="package-price">$599</div>
+                <ul>
+                    <li>Everything in Full</li>
+                    <li>Engine deep clean</li>
+                    <li>Valve adjustment</li>
+                    <li>New spark plugs</li>
+                    <li>Detail wash</li>
+                </ul>
+                <button class="btn-package">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Velocity Motors</h4>
+                <p>The ultimate destination for speed enthusiasts. Quality vehicles, unmatched service.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Reach Us</h4>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@velocitymotors.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Speed Lane, Motor City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Velocity Motors. Built with passion for the road.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

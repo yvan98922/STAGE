@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Velocity Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Velocity Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="signup.html" class="btn-signup">Sign Up</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Get in Touch</h1>
+        <p>Questions? We are here to help. Reach out any way you like.</p>
+    </header>
+
+    <section class="location-visual">
+        <div class="location-image">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=400&fit=crop" alt="Our Dealership Location">
+            <div class="location-overlay">
+                <h2>Visit Our Showroom</h2>
+                <p>Experience our collection in person</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Contact Details</h2>
+                
+                <div class="info-block">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>123 Speed Lane<br>Motor City, MC 12345<br>Rwanda</p>
+                        <a href="#" class="directions-link">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>Sales: +250 736 742 589</p>
+                        <p>Service: +250 783 681 659</p>
+                        <p class="hours">Mon-Sat: 9AM - 9PM</p>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>General: velocitymotors@gmail.com</p>
+                        <p>Sales: velocitymotors@gmail.com</p>
+                        <p>Service: velocitymotors@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h2>Send a Message</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Interested In</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select an option</option>
+                            <option value="motorbike">Motorbike Purchase</option>
+                            <option value="sports-car">Sports Car Purchase</option>
+                            <option value="service">Maintenance Service</option>
+                            <option value="financing">Financing Options</option>
+                            <option value="trade-in">Trade-In Evaluation</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us what you need..."></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Keep me updated on new arrivals and promotions</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="hours-section">
+        <h2>Opening Hours</h2>
+        <div class="hours-grid">
+            <div class="hours-block">
+                <h3><i class="fas fa-store"></i> Showroom</h3>
+                <ul>
+                    <li><span>Monday - Friday</span><span>9:00 AM - 7:00 PM</span></li>
+                    <li><span>Saturday</span><span>10:00 AM - 6:00 PM</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+            <div class="hours-block">
+                <h3><i class="fas fa-wrench"></i> Service Center</h3>
+                <ul>
+                    <li><span>Monday - Friday</span><span>8:00 AM - 6:00 PM</span></li>
+                    <li><span>Saturday</span><span>9:00 AM - 4:00 PM</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+            <div class="hours-block">
+                <h3><i class="fas fa-phone-volume"></i> Phone Support</h3>
+                <ul>
+                    <li><span>Monday - Friday</span><span>8AM - 8PM</span></li>
+                    <li><span>Saturday</span><span>Emergency only</span></li>
+                    <li><span>Sunday</span><span>7AM  -  9PM</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do I need an appointment to browse?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>No appointment needed for browsing. Just walk in during showroom hours. For test drives, we recommend calling ahead to make sure your desired vehicle is available.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What do I need to bring for financing?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Bring a valid ID, proof of income (recent pay stubs or tax returns), proof of residence, and your insurance information. Having a trade-in? Bring the title and registration.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I test ride a motorbike?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, with a valid motorcycle license and appropriate gear. We provide helmets if you do not have one. Some high-performance models may require proof of riding experience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you ship vehicles?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We work with trusted transport companies for nationwide delivery. Costs depend on distance and vehicle type. Ask us for a shipping quote.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is your return policy?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>All sales are final, but we offer a 3-day exchange option if the vehicle has issues we did not disclose. Our warranty covers major mechanical problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Velocity Motors</h4>
+                <p>The ultimate destination for speed enthusiasts. Quality vehicles, unmatched service.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Reach Us</h4>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@velocitymotors.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Speed Lane, Motor City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Velocity Motors. Built with passion for the road.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
